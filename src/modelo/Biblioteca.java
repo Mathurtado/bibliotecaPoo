@@ -153,6 +153,11 @@ public class Biblioteca {
         if (encontrado == null) {
             return "El usuario " + documento + " no tiene prestado el material " + codigo;
         }
+
+        if (fecha.isBefore(encontrado.getFechaPrestamo())) {
+            return "La fecha de devolución no puede ser anterior a la fecha del préstamo ("
+                    + encontrado.getFechaPrestamo() + ")";
+        }
         encontrado.registrarDevolucion(fecha);
 
         int multa = encontrado.calcularMulta();

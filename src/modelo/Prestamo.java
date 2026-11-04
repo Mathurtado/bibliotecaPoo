@@ -25,6 +25,10 @@ public class Prestamo {
         return usuario;
     }
 
+    public LocalDate getFechaPrestamo() {
+        return fechaPrestamo;
+    }
+
     public boolean estaActivo() {
         if (fechaDevolucion == null) return true;
         return false;
